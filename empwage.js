@@ -150,3 +150,14 @@ console.log("Non working days ="+nonWorkingDays);
 
 console.log("uc 10 - storing the Day, Hours Worked and Wage Earned in a single object."+dayWithWageAndHrsArray);
 
+let totalWages=dayWithWageAndHrsArray.filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0).reduce((totalwage,dailyHrsAndWage) => totalwage+=dailyHrsAndWage.dailyWage,0);
+let totalHoursworked=dayWithWageAndHrsArray.filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage >0).reduce((totalhrs,dailyHrsAndWage) => totalhrs+=dailyHrsAndWage.dailyHours,0);
+console.log(" total wage  : "+totalWages+" total hrs worked :"+totalHoursworked);
+
+let fulldays=dayWithWageAndHrsArray.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours==8).map(dailyHrsAndWage => dailyHrsAndWage.dayNum);
+let partdays=dayWithWageAndHrsArray.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours==4).map(dailyHrsAndWage => dailyHrsAndWage.dayNum);
+let nonWorkDays=dayWithWageAndHrsArray.filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours==0).map(dailyHrsAndWage => dailyHrsAndWage.dayNum);
+
+console.log("full working days are: "+fulldays);
+console.log("part working days are: "+partdays);
+console.log("Non working days are :"+nonWorkDays)
